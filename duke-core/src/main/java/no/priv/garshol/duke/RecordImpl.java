@@ -1,14 +1,10 @@
 package no.priv.garshol.duke;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Previously the default implementation of the Record interface; now
- * superceded by CompactRecord.
+ * superseded by CompactRecord.
  */
 public class RecordImpl implements ModifiableRecord {
   private Map<String, Collection<String>> data;
@@ -18,7 +14,7 @@ public class RecordImpl implements ModifiableRecord {
   }
 
   public RecordImpl() {
-    this.data = new HashMap();
+    this.data = new HashMap<>();
   }
 
   public boolean isEmpty() {
@@ -47,7 +43,7 @@ public class RecordImpl implements ModifiableRecord {
   public void addValue(String property, String value) {
     Collection<String> values = data.get(property);
     if (values == null) {
-      values = new ArrayList();
+      values = new ArrayList<>();
       data.put(property, values);
     }
     values.add(value);

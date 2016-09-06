@@ -1,21 +1,17 @@
 
 package no.priv.garshol.duke;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.io.Writer;
-import java.io.PrintWriter;
-
+import no.priv.garshol.duke.matchers.AbstractMatchListener;
 import no.priv.garshol.duke.matchers.MatchListener;
 import no.priv.garshol.duke.matchers.PrintMatchListener;
-import no.priv.garshol.duke.matchers.AbstractMatchListener;
-import no.priv.garshol.duke.utils.Utils;
 import no.priv.garshol.duke.utils.DefaultRecordIterator;
+import no.priv.garshol.duke.utils.Utils;
+
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.util.*;
+import java.util.Comparator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * The class that implements the actual deduplication and record
@@ -216,7 +212,7 @@ public class Processor {
 
       RecordIterator it2 = source.getRecords();
       try {
-        Collection<Record> batch = new ArrayList();
+        Collection<Record> batch = new ArrayList<>();
         long start = System.currentTimeMillis();
         while (it2.hasNext()) {
           Record record = it2.next();
@@ -226,7 +222,7 @@ public class Processor {
             srcread += (System.currentTimeMillis() - start);
             deduplicate(batch);
             it2.batchProcessed();
-            batch = new ArrayList();
+            batch = new ArrayList<>();
             start = System.currentTimeMillis();
           }
         }
@@ -487,8 +483,13 @@ public class Processor {
   }
 
   private void match(int dbno, Record record, boolean matchall) {
+    final Database db = getDB(dbno);
+    matchSingleRecord(record, matchall, db);
+  }
+
+  public void matchSingleRecord(Record record, boolean matchall, Database db) {
     long start = System.currentTimeMillis();
-    Collection<Record> candidates = getDB(dbno).findCandidateMatches(record);
+    Collection<Record> candidates = db.findCandidateMatches(record);
     searching += System.currentTimeMillis() - start;
     if (logger.isDebugEnabled())
       logger.debug("Matching record " +

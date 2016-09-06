@@ -1,28 +1,18 @@
 
 package no.priv.garshol.duke;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Writer;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Properties;
-
 import no.priv.garshol.duke.matchers.AbstractMatchListener;
 import no.priv.garshol.duke.matchers.PrintMatchListener;
 import no.priv.garshol.duke.matchers.TestFileListener;
-import no.priv.garshol.duke.utils.YesNoConsole;
-import no.priv.garshol.duke.utils.LinkFileWriter;
-import no.priv.garshol.duke.utils.NTriplesWriter;
-import no.priv.garshol.duke.utils.LinkDatabaseUtils;
-import no.priv.garshol.duke.utils.CommandLineParser;
-
+import no.priv.garshol.duke.utils.*;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * Command-line interface to the engine.
@@ -54,7 +44,6 @@ public class Duke {
     Logger logger = new CommandLineLogger(parser.getOptionState("verbose") ?
                                           1 : 0);
     boolean progress = parser.getOptionState("progress");
-    int count = 0;
     int batch_size = parser.getOptionInteger("batchsize", 40000);
     int threads = parser.getOptionInteger("threads", 1);
 

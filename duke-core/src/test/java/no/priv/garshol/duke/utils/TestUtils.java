@@ -1,22 +1,23 @@
 
 package no.priv.garshol.duke.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import no.priv.garshol.duke.CompactRecord;
 import no.priv.garshol.duke.Link;
 import no.priv.garshol.duke.Record;
 import no.priv.garshol.duke.RecordImpl;
 import no.priv.garshol.duke.matchers.AbstractMatchListener;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestUtils {
 
   public static Record makeRecord() {
-    return new RecordImpl(new HashMap());    
+    return new RecordImpl(new HashMap<String, Collection<String>>());
   }
 
   public static Record makeRecord(String p1, String v1) {
@@ -53,7 +54,7 @@ public class TestUtils {
     private int maybes;
 
     public TestListener() {
-      this.matches = new ArrayList();
+      this.matches = new ArrayList<>();
     }
     
     public List<Pair> getMatches() {

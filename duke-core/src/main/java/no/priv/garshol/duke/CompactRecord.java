@@ -1,11 +1,10 @@
 
 package no.priv.garshol.duke;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.io.Serializable;
+import java.util.HashSet;
 
 /**
  * An implementation of the Record interface which uses less memory
@@ -26,14 +25,14 @@ public class CompactRecord implements ModifiableRecord, Serializable {
   }
 
   public Collection<String> getProperties() {
-    Collection<String> props = new HashSet();
+    Collection<String> props = new HashSet<>();
     for (int ix = 0; ix < free; ix += 2)
       props.add(s[ix]);
     return props;
   }
 
   public Collection<String> getValues(String prop) {
-    Collection<String> values = new ArrayList();
+    Collection<String> values = new ArrayList<>();
     for (int ix = 0; ix < free; ix += 2)
       if (s[ix].equals(prop))
         values.add(s[ix + 1]);
@@ -55,8 +54,7 @@ public class CompactRecord implements ModifiableRecord, Serializable {
     if (free >= s.length) {
       String[] olds = s;
       s = new String[olds.length * 3];
-      for (int ix = 0; ix < olds.length; ix++)
-        s[ix] = olds[ix];
+      System.arraycopy(olds, 0, s, 0, olds.length);
     }
     s[free++] = property;
     s[free++] = value;

@@ -1,24 +1,15 @@
 package no.priv.garshol.duke.databases.es;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
-import no.priv.garshol.duke.ConfigurationImpl;
-import no.priv.garshol.duke.Database;
-import no.priv.garshol.duke.Property;
-import no.priv.garshol.duke.PropertyImpl;
-import no.priv.garshol.duke.Record;
-import no.priv.garshol.duke.RecordImpl;
+import no.priv.garshol.duke.Comparator;
+import no.priv.garshol.duke.*;
 import no.priv.garshol.duke.comparators.ExactComparator;
 import no.priv.garshol.duke.utils.TestUtils;
-
 import org.apache.lucene.index.CorruptIndexException;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -28,14 +19,14 @@ public class DocumentRecordTest {
 
 	@Before
 	public void setup() throws CorruptIndexException, IOException {
-		ExactComparator comp = new ExactComparator();
-		List<Property> props = new ArrayList<Property>();
+        Comparator comp = new ExactComparator();
+		List<Property> props = new ArrayList<>();
 		props.add(new PropertyImpl("ID"));
 		props.add(new PropertyImpl("NAME", comp, 0.3, 0.8));
 		ConfigurationImpl config = new ConfigurationImpl();
 		config.setProperties(props);
 		config.setThreshold(0.45);
-		db = new ElasticSearchDatabase();
+		db = new ElasticSearchDatabase.Builder().setTAddresses("localhost:9300").build();
 		db.setConfiguration(config);
 	}
 

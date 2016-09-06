@@ -1,18 +1,7 @@
 
 package no.priv.garshol.duke.test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-
-import no.priv.garshol.duke.ConfigurationImpl;
-import no.priv.garshol.duke.Processor;
-import no.priv.garshol.duke.Property;
-import no.priv.garshol.duke.PropertyImpl;
-import no.priv.garshol.duke.Record;
-import no.priv.garshol.duke.RecordIterator;
+import no.priv.garshol.duke.*;
 import no.priv.garshol.duke.comparators.Levenshtein;
 import no.priv.garshol.duke.datasources.InMemoryDataSource;
 import no.priv.garshol.duke.utils.DefaultRecordIterator;
@@ -20,6 +9,12 @@ import no.priv.garshol.duke.utils.TestUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -32,7 +27,7 @@ public class DeduplicatorTest {
   public void setup() throws IOException {
     listener = new TestUtils.TestListener();
     Levenshtein comp = new Levenshtein();
-    List<Property> props = new ArrayList();
+    List<Property> props = new ArrayList<>();
     props.add(new PropertyImpl("ID"));
     props.add(new PropertyImpl("NAME", comp, 0.3, 0.8));
     props.add(new PropertyImpl("EMAIL", comp, 0.3, 0.8));

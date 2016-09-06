@@ -12,8 +12,8 @@ public interface Comparator {
    * tokens when comparing. Necessary because this impacts indexing of
    * values.
    */
-  public boolean isTokenized();
+  boolean isTokenized();
   
-  public double compare(String v1, String v2);
+  double compare(String v1, String v2);
   
 }

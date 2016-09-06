@@ -1,0 +1,204 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://0014199435-one-off.sap.com/Y9GHYY3GY_"
+            xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0"
+            xmlns:xi6="http://sap.com/xi/AP/Common/GDT" xmlns:xi12="http://sap.com/xi/AP/Extensibility/GeneratedObjects"
+            xmlns:xi13="http://sap.com/xi/Extensibility/Global"
+            xmlns="http://0014199435-one-off.sap.com/Y9GHYY3GY_">
+    <xsd:import namespace="http://sap.com/xi/AP/Common/GDT"/>
+    <xsd:import namespace="http://sap.com/xi/Extensibility/Global"/>
+    <xsd:import namespace="http://sap.com/xi/AP/Extensibility/GeneratedObjects"/>
+    <xsd:simpleType name="CustomerLevelCode">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="EN">
+                <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="C"/>
+            <xsd:enumeration value="B"/>
+            <xsd:enumeration value="S"/>
+            <xsd:enumeration value="G"/>
+            <xsd:enumeration value="P"/>
+            <xsd:maxLength value="27"/>
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="SOURCEMARKETCode">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="EN">
+                <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="SOURCEMARKETCode.Content">
+                <xsd:attribute name="listID">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:maxLength value="60"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="listVersionID">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:maxLength value="15"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="listAgencyID">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:maxLength value="60"/>
+                            <xsd:minLength value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:simpleType name="SOURCEMARKETCode.Content">
+        <xsd:restriction base="xsd:token">
+            <xsd:maxLength value="7"/>
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:group name="Ext00163E18B1451EE687F17BB9B81F449D">
+        <xsd:sequence>
+            <xsd:element name="ExternalBusinessPartnerID" minOccurs="0" form="qualified" type="xi12:Ext00163E18B1451EE687F17BB9B81D849D"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F17BB9B81F449D"/>
+    <xsd:group name="Ext00163E18B1451EE687F17BB9B81F849D">
+        <xsd:sequence>
+            <xsd:element name="ExternalBusinessPartnerID" minOccurs="0" form="qualified" type="xi12:Ext00163E18B1451EE687F17BB9B81D849D"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F17BB9B81F849D"/>
+    <xsd:group name="Ext00163E18B1451EE687F17BB9B81FA49D">
+        <xsd:sequence>
+            <xsd:element name="ExternalBusinessPartnerID_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByText"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F17BB9B81FA49D"/>
+    <xsd:group name="Ext00163E18B1451EE687F17BB9B81FC49D">
+        <xsd:sequence>
+            <xsd:element name="ExternalBusinessPartnerID_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByText"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F17BB9B81FC49D"/>
+    <xsd:group name="Ext00163E18B1451EE687F17BB9B81FE49D">
+        <xsd:sequence>
+            <xsd:element name="ExternalBusinessPartnerID_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByText"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F17BB9B81FE49D"/>
+    <xsd:group name="Ext00163E18B1451EE687F1DD3BEDD2E60F">
+        <xsd:sequence>
+            <xsd:element name="SourceMarket" minOccurs="0" form="qualified" type="SOURCEMARKETCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F1DD3BEDD2E60F"/>
+    <xsd:group name="Ext00163E18B1451EE687F1DD3BEDD3060F">
+        <xsd:sequence>
+            <xsd:element name="SourceMarket" minOccurs="0" form="qualified" type="SOURCEMARKETCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F1DD3BEDD3060F"/>
+    <xsd:group name="Ext00163E18B1451EE687F1DD3BEDD3260F">
+        <xsd:sequence>
+            <xsd:element name="SourceMarket_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F1DD3BEDD3260F"/>
+    <xsd:group name="Ext00163E18B1451EE687F2131B680846C2">
+        <xsd:sequence>
+            <xsd:element name="OldOrgUnit2" minOccurs="0" form="qualified" type="xi12:Ext00163E18B1451EE687F2131B680706C2"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2131B680846C2"/>
+    <xsd:group name="Ext00163E18B1451EE687F2131B680866C2">
+        <xsd:sequence>
+            <xsd:element name="OldOrgUnit2" minOccurs="0" form="qualified" type="xi12:Ext00163E18B1451EE687F2131B680706C2"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2131B680866C2"/>
+    <xsd:group name="Ext00163E18B1451EE687F2131B680886C2">
+        <xsd:sequence>
+            <xsd:element name="OldOrgUnit2_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByText"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2131B680886C2"/>
+    <xsd:group name="Ext00163E18B1451EE687F2EDA508C52A58">
+        <xsd:sequence>
+            <xsd:element name="IsPassenger" minOccurs="0" form="qualified" type="xi6:Indicator"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2EDA508C52A58"/>
+    <xsd:group name="Ext00163E18B1451EE687F2EDA508C56A58">
+        <xsd:sequence>
+            <xsd:element name="IsPassenger" minOccurs="0" form="qualified" type="xi6:Indicator"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2EDA508C56A58"/>
+    <xsd:group name="Ext00163E18B1451EE687F2EDA508C58A58">
+        <xsd:sequence>
+            <xsd:element name="IsPassenger_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByIndicator"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2EDA508C58A58"/>
+    <xsd:group name="Ext00163E18B1451EE687F2EDA508C5AA58">
+        <xsd:sequence>
+            <xsd:element name="IsPassenger_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByIndicator"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2EDA508C5AA58"/>
+    <xsd:group name="Ext00163E18B1451EE687F2EDA508C5CA58">
+        <xsd:sequence>
+            <xsd:element name="IsPassenger_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByIndicator"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F2EDA508C5CA58"/>
+    <xsd:group name="Ext00163E18B1451EE687F3E535DD38AE95">
+        <xsd:sequence>
+            <xsd:element name="CustomerLevel" minOccurs="0" form="qualified" type="CustomerLevelCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F3E535DD38AE95"/>
+    <xsd:group name="Ext00163E18B1451EE687F3E535DD38EE95">
+        <xsd:sequence>
+            <xsd:element name="CustomerLevel" minOccurs="0" form="qualified" type="CustomerLevelCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F3E535DD38EE95"/>
+    <xsd:group name="Ext00163E18B1451EE687F3E535DD390E95">
+        <xsd:sequence>
+            <xsd:element name="CustomerLevel_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F3E535DD390E95"/>
+    <xsd:group name="Ext00163E18B1451EE687F3E535DD392E95">
+        <xsd:sequence>
+            <xsd:element name="CustomerLevel_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F3E535DD392E95"/>
+    <xsd:group name="Ext00163E18B1451EE687F3E535DD394E95">
+        <xsd:sequence>
+            <xsd:element name="CustomerLevel_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByCode"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F3E535DD394E95"/>
+    <xsd:group name="Ext00163E18B1451EE687F48B02DD221169">
+        <xsd:sequence>
+            <xsd:element name="AirportCode" minOccurs="0" form="qualified" type="xi12:Ext00163E18B1451EE687F48B02DD213169"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F48B02DD221169"/>
+    <xsd:group name="Ext00163E18B1451EE687F48B02DD223169">
+        <xsd:sequence>
+            <xsd:element name="AirportCode_EA8AE8AUBVHCSXVYS0FJ1R3ON" minOccurs="0" form="qualified" type="xi13:ExtSelectionByText"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:attributeGroup name="Ext00163E18B1451EE687F48B02DD223169"/>
+</xsd:schema>
